@@ -1,0 +1,8 @@
+{
+  "ENTITY_NAMES": {
+    "INFO": "Info",
+    "ROUTE": "Route"
+  },
+  "NOT_FOUND": "{{entity}} not found!",
+  "HELLO": "Hello"
+}
