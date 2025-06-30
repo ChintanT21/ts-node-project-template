@@ -5,7 +5,7 @@ import { errorHandlingMiddleware } from "./middlewares/error.middleware";
 import { dbSequelize } from "./configs/db.config";
 import { envHelper } from "./helpers/env.helper";
 
-const PORT = envHelper.GetApiPort();
+const PORT = envHelper.getApiPort();
 
 (async () => {
   await dbSequelize.authenticate();

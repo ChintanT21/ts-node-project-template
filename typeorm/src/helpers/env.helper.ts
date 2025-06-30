@@ -5,15 +5,12 @@ import { Entities } from "../configs/entities.config";
 
 class EnvHelper {
   public constructor() {
-    // Determina quale file .env caricare
     const env = process.env.NODE_ENV || "development";
     const envFile = `.env.${env}`;
-    console.log(path.resolve(envFile));
-    // Carica le variabili d'ambiente dal file .env corretto
     dotenv.config({ path: path.resolve(envFile) });
   }
 
-  public GetApiPort(): number {
+  public getApiPort(): number {
     return parseInt(process.env.API_PORT ?? "3001");
   }
 

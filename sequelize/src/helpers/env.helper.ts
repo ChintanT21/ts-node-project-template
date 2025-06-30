@@ -10,11 +10,11 @@ class EnvHelper {
     dotenv.config({ path: path.resolve(envFile) });
   }
 
-  public GetApiPort(): number {
+  public getApiPort(): number {
     return parseInt(process.env.API_PORT ?? "3001");
   }
 
-  public GetSequelizeOption(): SequelizeOptions {
+  public getSequelizeOption(): SequelizeOptions {
     return {
       database: process.env.DB_DATABASE,
       username: process.env.DB_USERNAME,
