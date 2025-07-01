@@ -1,19 +1,16 @@
-import path from "path";
-import dotenv from "dotenv";
-import { DataSourceOptions } from "typeorm";
-import { Entities } from "../configs/entities.config";
+import dotenv from 'dotenv';
+import path from 'path';
+import { DataSourceOptions } from 'typeorm';
+import { Entities } from '../configs/entities.config';
 
 class EnvHelper {
   public constructor() {
-    const env = process.env.NODE_ENV || "development";
+    const env = process.env.NODE_ENV || 'development';
     const envFile = `.env.${env}`;
     dotenv.config({ path: path.resolve(envFile) });
   }
 
-  public getApiPort(): number {
-    return parseInt(process.env.API_PORT ?? "3001");
-  }
-
+  public getApiPort = (): number => Number(process.env.API_PORT?.trim()) || 3000;
 
   public getTypeOrmOptions(): DataSourceOptions {
     const options: DataSourceOptions = {

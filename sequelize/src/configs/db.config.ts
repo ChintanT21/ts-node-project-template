@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize";
-import { envHelper } from "../helpers/env.helper";
+import { Sequelize } from 'sequelize';
+import { envHelper } from '../helpers/env.helper';
 
 const dbSequelize = new Sequelize(envHelper.getSequelizeOption());
 // coreSequelize.addModels([]);

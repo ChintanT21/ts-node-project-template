@@ -1,8 +1,8 @@
-import { FindManyOptions, FindOneOptions, ObjectLiteral } from "typeorm";
-import { PaginationResponse } from "../types/response.type";
-import { BaseRepository } from "../repositories/base.repository";
-import { NotFoundException } from "../dtos/error/base.error";
-import { getResponseMessage } from "../helpers/language.helper";
+import { FindManyOptions, FindOneOptions, ObjectLiteral } from 'typeorm';
+import { NotFoundException } from '../dtos/error/base.error';
+import { getResponseMessage } from '../helpers/language.helper';
+import { BaseRepository } from '../repositories/base.repository';
+import { PaginationResponse } from '../types/response.type';
 
 export class BaseService<T extends ObjectLiteral> {
   constructor(
@@ -13,7 +13,7 @@ export class BaseService<T extends ObjectLiteral> {
   findOne = async (filter: FindOneOptions<T> = {}): Promise<T> => {
     const entity = await this.baseRepo.findOne(filter);
     if (!entity) {
-      throw new NotFoundException(getResponseMessage("NOT_FOUND", this.modelName));
+      throw new NotFoundException(getResponseMessage('NOT_FOUND', this.modelName));
     }
     return entity;
   };

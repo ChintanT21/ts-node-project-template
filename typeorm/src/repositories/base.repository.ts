@@ -1,10 +1,20 @@
-import { DataSource, EntityTarget, FindManyOptions, FindOneOptions, ObjectLiteral, Repository } from "typeorm";
-import { PaginationResponse } from "../types/response.type";
+import {
+  DataSource,
+  EntityTarget,
+  FindManyOptions,
+  FindOneOptions,
+  ObjectLiteral,
+  Repository,
+} from 'typeorm';
+import { PaginationResponse } from '../types/response.type';
 
 export class BaseRepository<T extends ObjectLiteral> {
   protected repository: Repository<T>;
 
-  constructor(entity: EntityTarget<T>, private dataSource: DataSource) {
+  constructor(
+    entity: EntityTarget<T>,
+    private dataSource: DataSource
+  ) {
     this.repository = this.dataSource.getRepository(entity);
   }
 

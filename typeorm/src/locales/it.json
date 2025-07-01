@@ -1,4 +1,8 @@
 {
+  "ENTITY_NAMES": {
+    "INFO": "Info",
+    "ROUTE": "Route"
+  },
   "NOT_FOUND": "Non trovato",
   "HELLO": "Ciao"
 }

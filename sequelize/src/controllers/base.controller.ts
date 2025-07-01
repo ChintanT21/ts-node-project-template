@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import { HttpStatusCode } from "../constants/common.constant";
-import { ApiResponse, PaginationResponse } from "../types/response.type";
+import { Request, Response } from 'express';
+import { HttpStatusCode } from '../constants/common.constant';
+import { ApiResponse, PaginationResponse } from '../types/response.type';
 
 export abstract class BaseController {
   constructor(private readonly controllerName: string) { }

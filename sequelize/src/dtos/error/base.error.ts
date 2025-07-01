@@ -15,41 +15,41 @@ export class BaseError extends Error {
 export class BadRequestException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "BadRequestException";
+    this.name = 'BadRequestException';
   }
 }
 
 export class BusinessRuleException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "BusinessRuleException";
+    this.name = 'BusinessRuleException';
   }
 }
 
 export class NotFoundException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "NotFoundException";
+    this.name = 'NotFoundException';
   }
 }
 
 export class UnauthorizedException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "UnauthorizedException";
+    this.name = 'UnauthorizedException';
   }
 }
 
 export class UnhandledException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "UnhandledException";
+    this.name = 'UnhandledException';
   }
 }
 
 export class ForbiddenException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "ForbiddenException";
+    this.name = 'ForbiddenException';
   }
 }

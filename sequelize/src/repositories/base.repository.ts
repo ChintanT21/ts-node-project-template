@@ -1,8 +1,15 @@
-import { Model, ModelStatic, FindOptions, WhereOptions, IncludeOptions, Transaction } from "sequelize";
-import { PaginationResponse } from "../types/response.type";
+import {
+  FindOptions,
+  IncludeOptions,
+  Model,
+  ModelStatic,
+  Transaction,
+  WhereOptions,
+} from 'sequelize';
+import { PaginationResponse } from '../types/response.type';
 
 export class BaseRepository<T extends Model> {
-  constructor(private readonly model: ModelStatic<T>) {}
+  constructor(private readonly model: ModelStatic<T>) { }
 
   findOne = async (filter: FindOptions = {}): Promise<T | null> => {
     return await this.model.findOne({
@@ -19,7 +26,11 @@ export class BaseRepository<T extends Model> {
     return entities;
   };
 
-  create = async (data: Partial<T>, includeModels: IncludeOptions[] = [], transaction?: Transaction): Promise<T> => {
+  create = async (
+    data: Partial<T>,
+    includeModels: IncludeOptions[] = [],
+    transaction?: Transaction
+  ): Promise<T> => {
     return await this.model.create(data as any, {
       include: includeModels,
       transaction,

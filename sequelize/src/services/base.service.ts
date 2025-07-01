@@ -1,15 +1,18 @@
-import { Model, IncludeOptions, FindOptions, Transaction } from "sequelize";
-import { PaginationResponse } from "../types/response.type";
-import { BaseRepository } from "../repositories/base.repository";
-import { NotFoundException } from "../dtos/error/base.error";
-import { getResponseMessage } from "../helpers/language.helper";
+import { FindOptions, IncludeOptions, Model, Transaction } from 'sequelize';
+import { NotFoundException } from '../dtos/error/base.error';
+import { getResponseMessage } from '../helpers/language.helper';
+import { BaseRepository } from '../repositories/base.repository';
+import { PaginationResponse } from '../types/response.type';
 
 export class BaseLogic<T extends Model> {
-  constructor(private readonly baseRepo: BaseRepository<T>, private readonly modelName: string) { }
+  constructor(
+    private readonly baseRepo: BaseRepository<T>,
+    private readonly modelName: string
+  ) { }
 
   findOne = async (filter: FindOptions = {}): Promise<T> => {
     const entity = await this.baseRepo.findOne(filter);
-    if (!entity) throw new NotFoundException(getResponseMessage("NOT_FOUND", this.modelName));
+    if (!entity) throw new NotFoundException(getResponseMessage('NOT_FOUND', this.modelName));
     return entity;
   };
 
@@ -18,14 +21,19 @@ export class BaseLogic<T extends Model> {
     return entities;
   };
 
-  create = async (data: Partial<T>, includeModels: IncludeOptions[] = [], transaction?: Transaction): Promise<T> => {
+  create = async (
+    data: Partial<T>,
+    includeModels: IncludeOptions[] = [],
+    transaction?: Transaction
+  ): Promise<T> => {
     return await this.baseRepo.create(data, includeModels, transaction);
   };
 
   bulkCreate = async (data: Partial<T>[], includeModels: IncludeOptions[] = []): Promise<T[]> =>
     await this.baseRepo.bulkCreate(data, includeModels);
 
-  update = async (id: number, data: Partial<T>): Promise<void> => await this.baseRepo.update(id, data);
+  update = async (id: number, data: Partial<T>): Promise<void> =>
+    await this.baseRepo.update(id, data);
 
   delete = async (ids: number[]): Promise<void> => await this.baseRepo.delete(ids);
 

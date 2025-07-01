@@ -1,4 +1,4 @@
-import i18n from "../configs/localization.config";
+import i18n from '../configs/localization.config';
 
 export const getResponseMessage = (action: string, entityName: string) => {
   return i18n.__(action, { entity: translateMessage(`ENTITY_NAMES.${entityName}`) });
